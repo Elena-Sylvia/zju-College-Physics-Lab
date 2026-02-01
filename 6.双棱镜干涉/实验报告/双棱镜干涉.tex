@@ -1,0 +1,310 @@
+\documentclass{Phyport}
+\usepackage{longtable}
+\usepackage{multirow}      % 用于跨行
+\usepackage{float} % 在导言区添加
+\usepackage{amsmath}  % 必须加这一行！
+\usepackage{ctex}     % 如果要显示中文，加上这一行
+\usepackage{array} % 提供 !{} 功能
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+}
+
+\exname{双棱镜干涉} %实验名称
+\extable{12} %实验桌号
+\instructor{殷立明老师} %指导教师
+\class{-} %班级
+\name{-} %姓名
+\stuid{-} %学号
+
+\nyear{2025} %年
+\nmonth{11} %月
+\nday{3} %日
+\nweekday{一} %星期几
+
+\redate{} %如有实验补做，补做日期
+\resitu{} %情况说明：
+
+\begin{document}
+\setcounter{page}{0}
+\makecover
+
+\section{预习报告（10分）}
+（注：将已经写好的“物理实验预习报告”内容拷贝过来）
+
+\subsection{实验综述（5分）}
+（自述实验现象、实验原理和实验方法，包括必要的光路图、电路图、公式等。不超过500字。）
+
+\textbf{双棱镜干涉实验}旨在利用光的干涉现象来测定光的波长。该实验利用双棱镜形成的两个相干光束进行干涉，通过观察干涉条纹的变化，推算出光波的波长。与传统的单棱镜干涉法相比，双棱镜干涉法能够在较短的距离内产生更明显的干涉条纹，且具备更高的测量精度。
+
+\textbf{实验现象：}
+
+在实验中，单色光源通过双棱镜后被分成两束相干光束，这两束光经过不同的路径后重新合并，形成干涉条纹。当调节其中一束光的路径时，可以观察到干涉条纹的变化，条纹的增大或减小可以通过示波器进行记录，进而我们可以计算出光的波长。
+
+\textbf{实验原理：}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/光路图1.png} 
+        \caption{双棱镜干涉原理}
+        \label{fig:双棱镜干涉原理}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/光路图2.png} 
+        \caption{光波波长测量原理}
+        \label{fig:光波波长测量原理}
+    \end{minipage}
+    \label{fig:combined}
+\end{figure}
+
+1. 双棱镜干涉原理
+
+如图1所示，He-Ne 激光发出的光波会聚于狭缝 S，当狭缝 S 发出的光波投射到双棱镜 MN 上时，其波面被分割成两部分，通过双棱镜来观察这两束光波，就好像它们是由虚光源 $S_1$ 和 $S_2$发出的一样。所以在两束光相互叠加区域 $P'P''$ 内产生干涉现象。
+
+2. 光波波长测量原理
+
+如图2所示，$\delta$ 是 $S_1$ 和 $S_2$ 到毛玻璃屏上某一相干点 $P_k$ 的光程差。$x_{k+1}$ 和 $x_k$ 分别为 $S_1$ 和 $S_2$ 到毛玻璃屏上相邻两相干点 $P_{k+1}$ 和 $P_k$ 分别到 $P_0$ 的距离。当 $D \gg d, D \gg x_k$ 时，有：
+$$
+\delta = \frac{x_k}{D} d 
+$$
+所以，两相邻亮条纹的间距为：
+$$
+\Delta x = x_{k+1} - x_k = \frac{D}{d}\lambda\;, \;\lambda = \frac{\Delta x \cdot d}{D}
+$$
+
+3.二次成像原理：
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../images/光路图3.png}
+    \caption{二次成像原理}
+    \label{fig:二次成像原理}
+\end{figure}
+
+如图3所示，设透镜的焦距为f，则我们可以根据相似关系得到：
+$$
+\frac{d_1}{d+d_1}=\frac{S_1'-f}{S_1'}
+$$
+$$
+\frac{d_2}{d+d_2}=\frac{S_2'-f}{S_2'}
+$$
+由上面两式可得，$d=\sqrt{d_1d_2}$
+
+根据透镜成像定理可以推导出，狭缝到屏的距离D为：
+$$
+D=\frac{\sqrt{d_2}+\sqrt{d_1}}{\sqrt{d_2}-\sqrt{d_1}}f
+$$
+
+\textbf{实验装置与方法：}
+
+实验系统包括光源、双棱镜、光屏、调节器和干涉观察系统。光源发出的单色光经过双棱镜分成两束相干光，光束经过不同的路径后再汇合，形成干涉条纹。实验中，通过调节双棱镜的位置或观察屏上的条纹的位置，测量干涉条纹的间距，从而推算出光源的波长。
+
+\subsection{实验重点（3分）}
+（简述本实验的学习重点，不超过100字。）
+
+1.领会分波面法干涉实验原理
+
+2.了解双棱镜干涉装置及光路调节技巧
+
+3.观察双棱镜干涉现象并测定光波波长
+
+\subsection{实验难点（2分）}
+（简述本实验的实现难点，不超过100字。）
+
+本实验的难点主要在于干涉条纹的清晰成像与精确测量。由于双棱镜干涉要求两束光具有较高的相干性，实验中光源的位置、狭缝宽度及双棱镜的角度必须精确调整，否则条纹会模糊或者条纹的对比度会下降。此外，虚光源间距的测量与干涉条纹间距的测定均需要较高的精度，稍有误差都会显著影响波长计算结果。
+
+\section{原始数据（20分）}
+（将有老师签名的“自备数据记录草稿纸”的扫描或手机拍摄图粘贴在下方，完整保留姓名，学号，教师签字和日期。）
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{../images/original_data.jpg}
+    \caption{original data}
+    \label{fig:original_data}
+\end{figure}
+
+\section{结果与分析（60分）}
+\subsection{数据处理与结果（30分）}
+（列出数据表格、选择适合的数据处理方法、写出测量或计算结果。）
+
+\textbf{实验数据一：测量}$\nu_{01}$、$\nu_{02}$、d1、d2、D
+
+\textbf{毛玻璃屏的位置$\nu_0 = 4.10cm$}
+
+\textbf{双棱镜位置$ = 130.11cm$}
+
+\textbf{狭缝位置$ = 108.10cm$}
+
+$\nu_{01}$：放大像透镜位置读数
+
+$\nu_{02}$：缩小像透镜位置读数
+
+$d_1$：虚光源的放大像像点间距
+
+$d_2$：虚光源的缩小像像点间距
+
+$D=|\nu_{01}-\nu_{0}|+|\nu_{02}-\nu_0|$
+
+\begin{longtable}{|c|c|c|c|c|c|}
+  \caption{数据记录表一} \label{tab:数据记录表一} \\
+  \hline
+    \textbf{实验次数} & \textbf{$\nu_{01}/cm$} & \textbf{$\nu_{02}/cm$} & \textbf{$D/cm$} & \textbf{$d_1/mm$} & \textbf{$d_2/mm$} \\
+  \hline
+  \textbf{1} & 82.21 & 53.30 & 127.31 & 4.550 & 1.774 \\
+  \hline
+  \textbf{2} & 82.15 & 53.37 & 127.32 & 4.540 & 1.791 \\
+  \hline
+  \textbf{3} & 82.22 & 53.22 & 127.24 & 4.552 & 1.776 \\
+  \hline
+  \textbf{4} & 82.25 & 53.23 & 127.28 & 4.551 & 1.782 \\
+  \hline
+  \textbf{5} & 82.20 & 53.23 & 127.23 & 4.553 & 1.779 \\
+  \hline
+  \textbf{6} & 82.25 & 53.22 & 127.27 & 4.548 & 1.787 \\
+  \hline
+  \textbf{平均值} & 82.21 & 53.26 & 127.28 & 4.549 & 1.782 \\
+  \hline
+\end{longtable}
+
+$d=\sqrt{d_1d_2}=\sqrt{4.549 \times 1.782}=2.847(mm)$ , $D=127.28cm$
+
+对$d_1$：
+$$
+u_A=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n (x_i-\bar{x})^2} = 0.00193 (mm) \; \;, \; \; u_B=\frac{\Delta_{\text{仪}}}{\sqrt{3}} = \frac{0.004}{\sqrt{3}}=0.00231 (mm)
+$$
+
+因此，$u_{d_1}=\sqrt{u_A^2+u_B^2}=0.00301 (mm)$，$d_1=4.549 \pm 0.003 mm$
+
+对$d_2$：
+$$
+u_A=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n (x_i-\bar{x})^2} = 0.00267 (mm) \; \;, \; \; u_B=\frac{\Delta_{\text{仪}}}{\sqrt{3}} = \frac{0.004}{\sqrt{3}}=0.00231 (mm)
+$$
+
+因此，$u_{d_2}=\sqrt{u_A^2+u_B^2}=0.00353 (mm)$，$d_1=1.782 \pm 0.004 mm$
+
+对$D$：
+$$
+u_A=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n (x_i-\bar{x})^2} = 0.0148 (cm) \; \;, \; \; u_B=\frac{\Delta_{\text{仪}}}{\sqrt{3}} = \frac{0.02}{\sqrt{3}}=0.0115 (cm)
+$$
+
+因此，$u_{D}=\sqrt{u_A^2+u_B^2}=0.0187 (cm)$，$D=127.28 \pm 0.0115 cm$
+
+\textbf{数据记录表二：暗纹位置读数}
+
+\begin{longtable}{|c|c|c|c!{\vrule width 2pt}c|c|c|c!{\vrule width 2pt}c|c|}
+  \caption{数据记录表二：暗纹位置读数} \label{tab:数据记录表二} \\
+  \hline
+    \textbf{编号} & \textbf{左} & \textbf{右} & \textbf{平均} & \textbf{编号} & \textbf{左} & \textbf{右} & \textbf{平均} & \multicolumn{2}{|c|}{\textbf{$10\Delta_x=S_{i+10}-S_i$}}\\
+  \hline
+  \textbf{S1} & 0 & 0.073 & 0.037 & \textbf{S11} & 2.786 & 2.859 & 2.823 & $10\Delta x_1$ & 2.786\\
+  \hline
+  \textbf{S2} & 0.287 & 0.349 & 0.318 & \textbf{S12} & 3.075 & 3.136 & 3.106 & $10\Delta x_2$ & 2.788\\
+  \hline
+  \textbf{S3} & 0.545 & 0.613 & 0.867 & \textbf{S13} & 3.346 & 3.398 & 3.372 & $10\Delta x_3$ & 2.793\\
+  \hline
+  \textbf{S4} & 0.839 & 0.895 & 0.867 & \textbf{S14} & 3.620 & 3.682 & 3.651 & $10\Delta x_4$ & 2.784\\
+  \hline
+  \textbf{S5} & 1.106 & 1.177 & 1.142 & \textbf{S15} & 3.907 & 3.978 & 3.943 & $10\Delta x_5$ & 2.801\\
+  \hline
+  \textbf{S6} & 1.385 & 1.460 & 1.423 & \textbf{S16} & 4.187 & 4.250 & 4.219 & $10\Delta x_6$ & 2.796\\
+  \hline
+\end{longtable}
+
+$$
+y=\overline{10\Delta x}=\frac{10\Delta x_1+10\Delta x_2+10\Delta x_3+10\Delta x_4+10\Delta x_5+10\Delta x_6}{6} =2.791(mm) 
+$$
+
+$$
+u_A=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n (x_i-\bar{x})^2} = 0.00265 (mm) \; \;, \; \; u_B=\frac{\Delta_{\text{仪}}}{\sqrt{3}} = \frac{0.004}{\sqrt{3}}=0.00231 (mm)
+$$
+
+因此，$u_{y}=\sqrt{u_A^2+u_B^2}=0.00352 (mm)$，$y=2.791 \pm 0.004 mm$
+
+最后，进行波长的计算：
+$$
+\overline{\lambda} = \frac{\sqrt{\overline{d_1}\overline{d_2}}}{\overline{D}}\cdot \frac{\overline{y}}{10} = 6.243 mm = 624.3 nm
+$$
+
+\[
+\frac{u_\lambda}{\lambda}=\sqrt{\left(\frac{u_{d_1}}{2d_1}\right)^2+\left(\frac{u_{d_2}}{2d_2}\right)^2+\left(\frac{u_y}{y}\right)^2+\left(\frac{u_D}{D}\right)^2} \;\; ,\;\;u_\lambda = 1.03nm
+\]
+
+因此，最终结果为：$\lambda = 624.3 \pm 1.0 nm$
+
+\subsection{误差分析（20分）}
+（运用测量误差、相对误差或不确定度等分析实验结果，写出完整的结果表达式，并分析误差原因。）
+
+在本实验中，我们使用的激光为He-Ne激光器，其标准波长为632.8 nm。通过实验测量，我们得到的波长为$\lambda = 624.3 \pm 1.0 nm$。计算得到的相对误差为：
+$$
+\text{相对误差} = \frac{|\text{测量值} - \text{标准值}|}{\text{标准值}} \times 100\% = \frac{|624.3 - 632.8|}{632.8} \times 100\% \approx 1.34\%
+$$
+
+不确定度的分析在数据处理部分已经给出。
+
+可能导致误差的原因：
+
+1.空程差。读数显微镜的读数会存在一定的误差，在实验中，我们采取单向旋转的方式来尽量减小空程差带来的误差。
+
+2.在实验中，双棱镜的安装和调节可能存在微小误差，导致两束光的路径长度不完全相等，从而影响干涉条纹的位置和间距。
+
+3.观测误差。实验中，显示屏上显示的条纹存在一定的宽度，且形状并不是完全规则，这导致在测量条纹间距时存在一定的主观误差。
+
+4.另外，激光未完全水平、没有完全实现等高共轴、狭缝与三棱镜棱脊之间存在偏角等因素也会对实验结果产生影响。
+
+\subsection{实验探讨（10分）}
+（对实验内容、现象和过程的小结，不超过100字。）
+
+本实验通过双棱镜干涉法来测定光的波长，验证了光的干涉原理。实验中，单色光经双棱镜后被分为两束相干光，在屏上形成明暗相间的干涉条纹。通过显微镜测量条纹间距及虚光源间距，并利用二次成像法计算得到光的波长。实验过程中我们需要精确调节双棱镜位置、凸透镜位置、狭缝位置，并实现等高共轴，保证条纹清晰稳定。经多次测量与数据处理，我所得的波长结果与理论值较接近，实验较为成功。
+
+\section{思考题（10分）}
+（解答教材或讲义或老师布置的思考题，请先写题干，再作答。）
+
+\textbf{思考题一：为减小测量误差，应该如何设置狭缝到屏的距离D，狭缝到双棱镜的距离?}
+
+为了减小测量误差，应合理设置狭缝到双棱镜及狭缝到屏的距离。狭缝到屏的距离D可以适当增大，这样可以使干涉条纹间距增大，便于测量；但若D过大，光强减弱、条纹变暗，易受环境干扰。同时，狭缝到双棱镜的距离应适中，既要保证两束光能够充分重叠形成清晰的干涉条纹，又要避免过近导致条纹过于密集难以分辨。因此，稍稍偏大的 D与合适的d搭配可显著提高测量精度并保证干涉条纹清晰稳定。
+
+\textbf{思考题二：测量时如果条纹有倾斜，对测量结果有何影响？}
+
+当干涉条纹出现倾斜时，会使测量结果产生系统性误差。条纹倾斜意味着干涉条纹与显微镜刻线不平行，测量条纹间距时沿刻线方向得到的距离实际上是条纹真实间距的投影值，从而导致测量结果偏小。若倾斜角为 $\theta$，则测得的条纹间距为 $\beta'=\beta\cos\theta$，当 $\theta$ 较小时虽误差不大，但累积到多条条纹的平均计算中仍会显著影响波长的测量结果。此外，条纹倾斜还会降低条纹的清晰度，出现边界模糊、读数困难等问题。因此，实验中应通过调整双棱镜与显微镜的位置，使条纹与刻线严格平行，以保证波长测量的准确性。
+
+\textbf{思考题三：证明公式$d=\sqrt{d_1d_2}$}
+
+如实验原理部分图3所示，设透镜的焦距为 $f$，则我们可以根据相似关系得到：
+
+{
+\noindent\hspace*{3em}%
+\begin{minipage}{\dimexpr\linewidth-2em}
+\begin{flalign*}
+& \frac{d_1}{d+d_1}=\frac{S_1'}{D}=\frac{S_1'-f}{S_1'} \; \; ,\; \; \frac{d_2}{d+d_2}=\frac{S_2'}{D}=\frac{S_2'-f}{S_2'} & \\
+& \text{由上面两式可得：}\quad D=\frac{{S_1'}^2}{S_1'-f}=\frac{{S_2'}^2}{S_2'-f} & \\
+& \text{故有}\quad (S_1'-S_2')(S_1'+S_2')f=S_1'S_2'(S_1'-S_2')\;,\;\text{即}\quad (S_1'-f)(S_2'-f)=f^2 & \\
+& \text{即}\quad \frac{S_1'-f}{f}=\frac{f}{S_2'-f} & \\
+& \text{而}\quad \frac{d_i}{d + d_i} = \frac{S_i' - f}{S_i'} \quad \Longleftrightarrow \quad \frac{d}{d_i} = \frac{f}{S_i' - f} \;,\;i=1,2 & \\
+& \text{由以上两式可得，}\quad \frac{d}{d_1} = \frac{f}{S_1' - f} = \frac{S_2' - f}{f} = \frac{d_2}{d} & \\
+& \text{即}\quad d=\sqrt{d_1d_2} &
+\end{flalign*}
+\end{minipage}
+}
+
+\textbf{思考题四：为什么狭缝很窄才可以得到清晰的干涉条纹？}
+
+只有当狭缝足够窄时，才能保证从狭缝出射的光波具有良好的相干性。若狭缝过宽，不同位置出射的光波之间相位差较大，导致光波之间的相干性下降，干涉条纹会变得模糊甚至消失。
+
+\textbf{思考题五：调节过程中，若看不到清晰的干涉条纹，可能的原因有哪些?}
+
+1.狭缝过窄，导致透过的光太少
+
+2.狭缝宽度过大，光的相干性较低，导致条纹模糊或消失
+
+3.整个系统未实现等高共轴，光路不平行，造成条纹倾斜或缺失
+
+4.读数显微镜未调焦到位，聚焦不准导致显示的条纹模糊
+
+\vspace{3\baselineskip}
+\input{注意事项}
+\end{document}

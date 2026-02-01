@@ -1,0 +1,300 @@
+\documentclass{Phyport}
+\usepackage{longtable}
+\usepackage{multirow}      % 用于跨行
+\usepackage{float} % 在导言区添加
+\usepackage{amsmath}  % 必须加这一行！
+\usepackage{ctex}     % 如果要显示中文，加上这一行
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+}
+
+\exname{光的偏振应用研究} %实验名称
+\extable{8} %实验桌号
+\instructor{姚星星老师} %指导教师
+\class{-} %班级
+\name{-} %姓名
+\stuid{-} %学号
+
+\nyear{2025} %年
+\nmonth{12} %月
+\nday{8} %日
+\nweekday{一} %星期几
+
+\redate{} %如有实验补做，补做日期
+\resitu{} %情况说明：
+
+\begin{document}
+\setcounter{page}{0}
+\makecover
+
+\section{预习报告（10分）}
+（注：将已经写好的“物理实验预习报告”内容拷贝过来）
+
+\subsection{实验综述（5分）}
+（自述实验现象、实验原理和实验方法，包括必要的光路图、电路图、公式等。不超过500字。）
+
+\textbf{光的偏振及其应用研究}实验旨在通过观测光在介质界面的反射特性，深入理解光的横波性质。本次实验的核心在于利用布儒斯特角原理测定介质的折射率，并验证线偏振光遵循马吕斯定律。
+
+\vspace{1\baselineskip}
+
+\textbf{实验原理：}
+
+\textbf{1. 菲涅尔公式与偏振光的反射特性}
+
+光波作为电磁波，在两种介质界面（如空气与玻璃）反射时，其反射特性强烈依赖于光的偏振态。如图1所示，将入射光矢量分解为两个正交分量：
+
+\begin{itemize}
+    \item \textbf{S分量（图1-1）：} 光矢量垂直于入射面（垂直纸面，用圆点表示）。
+    \item \textbf{P分量（图1-2）：} 光矢量平行于入射面（在纸面内，用箭头表示）。
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../images/光的偏振原理图.png}
+    \caption{菲涅尔公式原理图}
+    \label{fig:菲涅尔公式原理图}
+\end{figure}
+
+根据菲涅尔公式，P分量的反射振幅比为：
+
+\begin{equation}
+    \frac{E_1}{E_0} = \frac{\tan(\theta_0 - \theta_2)}{\tan(\theta_0 + \theta_2)}
+\end{equation}
+
+其中 $\theta_0$ 为入射角，$\theta_2$ 为折射角。
+
+当入射角满足 $\theta_0 + \theta_2 = 90^\circ$ 时，公式分母趋于无穷大，反射系数为零。这意味着此时反射光中不包含P分量，只有S分量，反射光变为完全线偏振光。
+
+该特定入射角称为\textbf{布儒斯特角}（Brewster's Angle, $\theta_B$），此时满足：
+
+\begin{equation}
+    \tan \theta_B = \frac{n_2}{n_1} = n \quad (\text{空气中 } n_1 \approx 1)
+\end{equation}
+
+实验通过测量使反射光中P分量消失的入射角 $\theta_B$，即可求得折射率 $n$。
+
+\textbf{2. 马吕斯定律（Malus's Law）}
+
+当线偏振光（光强为 $I_0$）透过检偏器时，若线偏振光的振动方向与检偏器透光轴的夹角为 $\phi$，则透射光强 $I$ 满足：
+\[
+I = I_0 \cos^2 \phi
+\]
+
+实验中利用硅光电池测量光电流 $i$。由于在一定范围内光电流与入射光强成正比（$i \propto I$），通过测量光电流 $i$ 随转角 $\phi$ 的变化，即可验证该线性关系。
+
+
+\vspace{1\baselineskip}
+
+\textbf{实验方法：}
+
+\textbf{1. 测量黑色平板的折射率（逐渐逼近法）}
+\begin{itemize}
+    \item 调节激光器、转盘中心、黑色平板及光探测器等高共轴。
+    \item 旋转激光器（或加起偏器），使入射光为平行于入射面的线偏振光（$P$光）。
+    \item 转动载物台改变入射角，观察反射光强。当反射光强达到最弱（消光）时，记录刻度盘读数。
+    \item 为消除偏心差，在转台左右两侧分别测量布儒斯特角对应的位置读数 $\theta_{L}$ 和 $\theta_{R}$，则布儒斯特角 $\theta_B$ 可由相关几何关系（如 $|\theta_L - \theta_R|/2$ 或根据具体仪器零点公式）计算得出，进而求出 $n = \tan \theta_B$。
+\end{itemize}
+
+\textbf{2. 验证光电流与光强的关系}
+\begin{itemize}
+    \item 固定入射角为布儒斯特角，此时反射光为垂直于入射面振动的线偏振光（$S$光）。
+    \item 在反射光路中加入偏振片。旋转偏振片，测量并记录光电流出现极大值 $i_{\max}$ 和极小值 $i_{\min}$ 的角度，确定偏振片的透光轴方向；随后改变偏振片角度 $\phi$（如每隔 $10^\circ$），记录对应的光电流 $i$。同时测量遮挡光路时的本底电流 $i'$。
+    \item 绘制 $(i - i') \sim \cos^2 \phi$ 曲线，通过观察曲线是否拟合为通过原点的直线来验证马吕斯定律。
+\end{itemize}
+
+\subsection{实验重点（3分）}
+（简述本实验的学习重点，不超过100字。）
+
+1. 深刻理解光的偏振态（线偏振、自然光），以及布儒斯特角产生线偏振光（p分量反射为0）的物理机制。
+
+2. 掌握光学实验中的共轴调节技术，以及利用“逐渐逼近法”准确寻找反射光强极小值位置的方法。
+
+3. 学会处理实验数据，通过扣除本底电流和作图分析，验证光电流与偏振角余弦平方的线性关系（马吕斯定律）。
+
+\subsection{实验难点（2分）}
+（简述本实验的实现难点，不超过100字。）
+
+1. \textbf{极小值的精确判断：} 在布儒斯特角附近反射光强变化平缓，肉眼或仪器难以直接锁定唯一的最小值点，需通过测量光强对称点来辅助定位，操作要求高。
+
+2. \textbf{系统误差控制：} 激光器、转台与检测器的共轴等高调节直接影响角度测量的准确性；此外，环境背景光会引入本底电流，若不进行有效遮蔽或修正，将导致马吕斯定律验证曲线偏离原点。
+
+\section{原始数据（20分）}
+（将有老师签名的“自备数据记录草稿纸”的扫描或手机拍摄图粘贴在下方，完整保留姓名，学号，教师签字和日期。）
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../images/originaldata.jpg}
+    \caption{original data}
+    \label{fig:originaldata}
+\end{figure}
+
+\section{结果与分析（60分）}
+\subsection{数据处理与结果（30分）}
+（列出数据表格、选择适合的数据处理方法、写出测量或计算结果。）
+
+\textbf{实验一：测量黑色平板折射率}
+
+\begin{longtable}{|c|c|c|c|}
+  \caption{测量黑色平板折射率数据} \label{tab:测量黑色平板折射率数据} \\
+  \hline
+    \textbf{测量次数} & \textbf{左侧角坐标$\theta_1(\text{度})$} & \textbf{右侧角坐标$\theta_2(\text{度})$} & \textbf{$\theta_b=|\theta_1-\theta_2|/4$} \\
+  \hline
+    \textbf{1} & $75.3^\circ$ & $294.4^\circ$ & $54.8^\circ$ \\
+  \hline
+    \textbf{2} & $77.2^\circ$ & $294.5^\circ$ & $54.3 ^\circ$ \\
+  \hline
+    \textbf{3} & $76.3^\circ$ & $293.4^\circ$ & $54.3^\circ$ \\
+  \hline
+    \textbf{4} & $75.8^\circ$ & $293.6\circ$ & $54.5^\circ$ \\
+  \hline
+    \textbf{5} & $75.9^\circ$ & $293.5^\circ$ & $54.4^\circ$ \\
+  \hline
+    \textbf{6} & $76.1^\circ$ & $293.6^\circ$ & $54.4^\circ$ \\
+  \hline
+\end{longtable}
+
+布儒斯特角的平均值为：
+
+$$
+\overline{\theta_B} = \frac{\sum_{1}^{6}\theta_{bi}}{6} = 54.45^\circ
+$$
+
+由此就可以求得折射率的平均值为：$\bar{n} = tan(54.45^\circ)\approx 1.3992$
+
+接下来进行不确定度的计算。
+
+$$
+u_A=\sqrt{\frac{\sum (\theta_{bi}-\overline{\theta_b})^2}{n(n-1)}}=\sqrt{\frac{0.175}{30}}\approx 0.0764^\circ \;\;\;\;\; u_B= \frac{1}{4}\sqrt{u(\theta)^2+u(\theta)^2}=\frac{1}{4}\sqrt{2\times (\frac{0.5}{\sqrt{3}})^2}\approx0.1021^\circ
+$$
+
+$$
+u_c(\theta_B)=\sqrt{u_A^2+u_B^2}\approx0.1275^\circ
+$$
+
+因为n和$\theta_B$的关系为$n=tan\theta_B$，所以根据不确定度传递规则：
+$$
+u(n)=\frac{1}{cos^2\theta_B}u_c(\theta_B)\approx0.00658
+$$
+
+故折射率的修正结果为：$n=1.399\pm0.007$
+
+\textbf{实验二：偏振片的偏振化方向角度测量}
+
+\textbf{偏振片编号：53}
+
+\begin{longtable}{|c|c|c|c|c|}
+  \caption{偏振片的偏振化方向角度测量实验数据} \label{tab:偏振片的偏振化方向角度测量实验数据} \\
+  \hline
+    \textbf{光电流} & \textbf{极大} & \textbf{极小} & \textbf{极大} & \textbf{极小} \\
+  \hline
+    \textbf{光电流极值处角坐标$\beta(\text{度})$} & $66.0^\circ$ & $158.6^\circ$  & $246.1 ^\circ$ & $338.1 ^\circ$ \\
+  \hline
+    \textbf{等效夹角$\Delta\beta(\text{度})$} & $66.0^\circ$ & $68.6^\circ$  & $66.1^\circ$ & $ 68.1^\circ$ \\
+  \hline
+    \textbf{光电流} & \textbf{极大} & \textbf{极小} & \textbf{极大} & \textbf{极小} \\
+  \hline
+    \textbf{光电流极值处角坐标$\beta(\text{度})$} & $68.1^\circ$ & $158.8^\circ$  & $249.2 ^\circ$ & $338.4 ^\circ$ \\
+  \hline
+    \textbf{等效夹角$\Delta\beta(\text{度})$} & $68.1^\circ$ & $68.8^\circ$  & $ 69.2^\circ$ & $ 68.4^\circ$ \\
+    \hline
+\end{longtable}
+
+因此，我们可以得到夹角的平均值为：$\overline{\Delta\beta}=\frac{\sum\Delta\beta_i}{8}=67.9^\circ$
+
+接下来进行不确定度的计算:
+$$
+u_A=\sqrt{\frac{\sum(\Delta\beta_i-\overline{\Delta\beta})^2}{n(n-1)}}\approx0.426^\circ \;\;\;\;\; u_B=\frac{\Delta_{\text{仪}}}{\sqrt{3}}\approx0.289^\circ
+$$
+$$
+u_c=\sqrt{u_A^2+u_B^2}\approx0.515^\circ
+$$
+
+故夹角的修正结果为：$\Delta\beta=67.9^\circ\pm0.6^\circ$
+
+\textbf{实验三：光电流和光强的关系}
+
+\textbf{本底光电流$i'=0.3 \mu A$}
+
+\textbf{根据实验二的测量结果可知，$\Delta\beta=67.9^\circ$}
+
+\begin{longtable}{|c|c|c|c|c|c|c|c|c|}
+  \caption{光电流随光强变化结果} \label{tab:光电流随光强变化结果} \\
+  \hline
+    \textbf{$\beta(\text{度})$} & $70^\circ$ & $80^\circ$ & $90^\circ$ & $100^\circ$ & $110^\circ$ & $120^\circ$ & $130^\circ$ & $140^\circ$ \\
+  \hline
+    \textbf{光电流i($\mu A$)} & 275 & 268 & 244 & 208 & 164.0 & 114.8 & 69.3 & 31.2 \\
+  \hline
+    \textbf{$\Phi=\beta-\Delta\beta(\text{度})$} & 2.1 & 12.1 & 22.1 & 32.1 & 42.1 & 52.1 & 62.1 & 72.1 \\
+  \hline
+    \textbf{$100 \times cos^2(\Phi)$} & 99.9 & 95.6 & 85.8 & 71.8 & 55.0 & 37.8 & 21.9 & 9.5  \\
+  \hline
+    \textbf{去本底光电流$i-i'(\mu A)$} & 274.7 & 267.7 & 243.7 & 207.7 & 163.7 & 114.5 & 69.0 & 30.9  \\
+  \hline
+    
+\end{longtable}
+
+做$i-i'$与$100 \cdot cos^2\Phi$的关系图如下：
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{../images/output.png}
+    \caption{拟合曲线图}
+    \label{fig:output}
+\end{figure}
+
+根据拟合结果我们可以看到决定系数$R^2=0.9984$，说明$i-i'$与$100 \cdot cos^2\Phi$之间存在线性关系，结合马吕斯定律$
+I = I_0 \cos^2 \phi$,我们可以得出结论：光电流$i-i'$与入射光强I成线性关系。
+
+\subsection{误差分析（20分）}
+（运用测量误差、相对误差或不确定度等分析实验结果，写出完整的结果表达式，并分析误差原因。）
+
+不确定度的分析在前一部分已经完成，这部分直接分析实验的误差来源。
+
+\textbf{测量黑色平板折射率：}
+
+1.激光束、转台中心轴与探测器可能未严格处于同一平面或未严格共轴，导致转动转台时入射点会发生微小位移，反射光斑偏离探测器中心，引入系统误差。
+
+2.\textbf{消光点判断的主观误差：} 寻找光强最小的角坐标的时候，在一定的范围内光电流大小均未发生变化，这导致我们无法准确地判断光强最小的角坐标，也会对测量结果产生一定的误差。
+
+\textbf{测量偏振片方向:}
+
+1.\textbf{极值位置定位困难：}与第一个实验类似，光电流在极大值和极小值附近随角度变化非常缓慢，我们难以精确锁定极值对应的角度，因此我们的读数具有较大的主观性，会引入一定的误差。
+
+\textbf{光电流与光强关系}
+
+根据拟合结果曲线我们可以发现，拟合直线的截距大约为10微安，这与理论情况存在一点偏差，主要原因可能如下：
+
+1.第二个实验测得的$\Delta \beta$值可能存在一定的误差，这会导致在第三个实验中也引入一定的系统性偏移，导致拟合结果截距不为0。
+
+2.激光功率的不稳定性。激光器的输出功率可能会在测量的过程中发生漂移，导致测量结果产生一定的误差。此外，环境中的杂散光强度也可能发生变化，会引入一定的误差。
+
+\subsection{实验探讨（10分）}
+（对实验内容、现象和过程的小结，不超过100字。）
+
+在本次实验中，我深入研究了光的偏振特性及其应用。首先，我利用渐进逼近法测得黑色平板的布儒斯特角约为 $54.45^\circ$，计算得出其折射率 $n = 1.399 \pm 0.007$。随后，我通过极值法确定了偏振片透光轴的等效夹角 $\Delta\beta \approx 67.9^\circ$。在验证马吕斯定律时，尽管拟合曲线存在约 $10.15 \mu A$ 的截距偏差，但去除本底电流后的光电流与 $\cos^2\Phi$ 呈现出极佳的线性关系（$R^2 \approx 0.998$）。实验结果直观有力地验证了线偏振光强度随角度变化的物理规律。
+
+\section{思考题（10分）}
+（解答教材或讲义或老师布置的思考题，请先写题干，再作答。）
+
+\textbf{1.请简述减小实验误差的方法}
+
+在本次实验中，减小误差的方法主要包括以下几点：首先是双侧测量法，即在转台左右两侧分别测量消光角，取平均值以消除转台偏心差带来的系统误差。其次是采用逐渐逼近法来确定布儒斯特角，因为极小值附近光强变化平缓，通过反复微调寻找“最暗点”比单次读取更加准确。此外，在验证马吕斯定律时，扣除了本底电流的影响，以消除环境杂散光对线性关系的干扰。最后，实验前需仔细调节激光器、转台和探测器，确保它们严格等高共轴。
+
+\textbf{2.如何调节激光通过转台的中心转轴}
+
+打开激光器，调节黑色平板正对激光器，调节激光器的位置，使得光束大致打在黑色平板的中心转轴位置，接着将黑色平板旋转一定角度，如果光点的位置基本不变，说明激光已经通过转台的中心转轴了；如果光点发生了偏移，则再调节激光器的位置与方向；重复转动黑色平板和调节激光器的过程，直至光点的位置基本不发生改变。
+
+\textbf{3.如何调节激光与转台转轴中心轴垂直}
+
+打开激光器，调节黑色平板正对激光器，通过判断经过黑色平板反射回去的光束沿原路返回（即激光器上出现的光点的位置是否是光束出射的位置），来判断激光器与转台转轴中心轴是否垂直。调节激光器后方的螺丝，直至二者重合，此时激光器与转台转轴中心轴垂直。
+
+\textbf{4.在探究光电流与光照强度关系时背景光照的影响是怎样的}
+
+背景光照主要来源于实验室的照明灯或窗外射入的自然光，它会以本底电流的形式叠加在测量值上。在验证马吕斯定律时，理论公式为 $I = I_0 \cos^2 \Phi$，是一条过原点的直线。如果存在背景光照且未被扣除，实验测得的电流变为 $I_{测} = I_0 \cos^2 \Phi + i_{背景}$。这在数学上表现为拟合直线的截距不为零，导致直线整体向上平移，不再经过原点。虽然这不影响对线性规律的判断，但会带来明显的系统误差，使得实验结果无法精确吻合理论模型。
+
+\vspace{3\baselineskip}
+
+\input{注意事项}
+\end{document}

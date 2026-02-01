@@ -1,0 +1,144 @@
+\documentclass{Preport}
+\usepackage{longtable}
+\usepackage{multirow}      % 用于跨行
+\usepackage{float} % 在导言区添加
+\usepackage{amsmath}  % 必须加这一行！
+\usepackage{ctex}     % 如果要显示中文，加上这一行
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+}
+
+\exname{非平衡电桥} %实验名称
+\instructor{谭艾林老师} %指导教师
+\class{-} %班级
+\name{-} %姓名
+\stuid{-} %学号
+
+\nyear{2025} %年
+\nmonth{11} %月
+\nday{24} %日
+\nweekday{一} %星期几
+
+\begin{document}
+\setcounter{page}{0}
+\makecover
+
+\section{预习报告（10分）}
+\subsection{实验综述（5分）}
+（自述实验现象、实验原理和实验方法，包括必要的光路图、电路图、公式等。不超过500字。）
+
+\textbf{非平衡直流电桥实验}旨在帮助我们掌握非平衡电桥的工作原理，并利用它来测量金属（铜）的电阻温度系数。与平衡电桥不同的是，非平衡电桥不仅能测量相对稳定的物理量，更能将传感器（如热敏电阻）因环境变化（温度、压力等）引起的电阻微小变化转化为电压信号输出，是自动控制和非电量电测技术的基础。
+
+\vspace{1\baselineskip}
+
+\textbf{实验现象：}
+
+在实验中，将铜电阻（Cu50）置于加热装置中。随着温度 t 的升高，铜电阻阻值$R_t$增大。
+
+1.在\textbf{非平衡电压法}中，电桥初始处于平衡状态（U=0），随温度升高，电桥失去平衡，数字电压表显示的非平衡电压 U逐渐增大。
+
+2.在\textbf{平衡电桥法}中，随温度升高，检流计偏转，需调节比较臂电阻使电桥重新达到平衡，此时测量出的电阻值$R_t$随温度线性增加。
+
+\vspace{1\baselineskip}
+
+\textbf{实验原理：}
+
+\textbf{1. 非平衡电桥工作原理}
+
+非平衡电桥原理如下图所示，由$R_1,R_2,R_3,R_x$组成桥臂，电源电压为 E:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../images/非平衡电桥原理图.png}
+    \caption{非平衡电桥原理图}
+    \label{fig:非平衡电桥原理图}
+\end{figure}
+
+当负载电阻 $R_g \to \infty $（输出端开路）时，输出电压 
+U为 B、D 两点电位差，又根据分压原理，B 点和 D 点对负极（C点）的电压分别为：
+\[
+U_{BC} = \frac{R_x}{R_1 + R_x} E, \quad U_{DC} = \frac{R_3}{R_2 + R_3} E
+\]
+
+则输出电压 $U$ 为：
+\begin{equation}
+    U = U_{BC} - U_{DC} = \left( \frac{R_x}{R_1 + R_x} - \frac{R_3}{R_2 + R_3} \right) E = \frac{R_2 R_x - R_1 R_3}{(R_1 + R_x)(R_2 + R_3)} E
+    \label{eq:general_U}
+\end{equation}
+
+当满足 $R_1 R_3 = R_2 R_x$ 时，$U=0$，电桥处于平衡状态。固定$R_1,R_2,R_3$，调节电阻$R_x$为$R_x+ \Delta R_x$，电桥失去平衡，输出的非平衡电压 $U$ 为：
+$$
+U = \frac{R_2 R_x + R_2 \Delta R_x - R_1 R_3}{(R_1 + R_x + \Delta R_x)(R_2 + R_3)} \cdot E
+$$
+
+根据U的变化，我们就能得知电桥中电阻的变化情况。
+
+\textbf{2. 金属电阻温度系数 $\alpha$ 的测量}
+
+变温金属电阻阻值随温度线性变化，即 $R_t = R_0 (1 + \alpha t)$。其中$R_0$为变温电阻0℃时的阻值，$\alpha$为电阻温度系数。
+
+实验中，当B、D处于开路状态时，设定桥臂电阻 $R_1 = R_2 = R_3 = R_0$，此时待测电阻 $R_x = R_t = R_0 + \Delta R_x$，其中 $\Delta R_x = R_0 \alpha t$。
+
+将上述条件代入公式 (1) 得输出电压与温度的关系：
+\begin{equation}
+    U = \frac{\alpha t}{4 + 2\alpha t} E
+\end{equation}
+
+由此可反解出电阻温度系数 $\alpha$ 的计算公式：
+
+\begin{equation}
+    \alpha = \frac{4U}{t(E - 2U)}
+    \label{eq:alpha_calc}
+\end{equation}
+
+本次实验中 $E \approx 1.3\,\text{V}$。因此通过测量不同温度 $t$ 下的非平衡电压 $U$，我们即可求得 $\alpha$。
+
+
+\vspace{1\baselineskip}
+
+\textbf{实验方法：}
+
+\vspace{1\baselineskip}
+
+\textbf{平衡电桥法（绘 $R_t - t$ 曲线）：}
+
+1.将开关置于“平衡 5V”档，此时电路转换为惠斯登电桥
+
+2.设定 $R_1 = R_2$，调节 $R_3$（即测量臂 $R_c$）使检流计示数为 0。
+
+3.此时 $R_x = R_3$。逐点测量不同温度下的阻值，绘制 $R_t - t$ 曲线，验证线性关系并由斜率求 $\alpha$。
+
+\vspace{1\baselineskip}
+
+\textbf{非平衡电压法（测 $\alpha$）：}
+
+1.将 FQJ 电桥功能开关置于“非平衡电压”档。
+
+2.按照 $R_1 = R_2 = R_3 = 50\,\Omega$ 设置桥臂，接入 $0^\circ\text{C}$ 时阻值为 $50\,\Omega$ 的 Cu50 铜电阻。
+
+3.\textbf{预调平衡}：若当前非 $0^\circ\text{C}$，需通过微调 $R_3$ 或利用电桥调零功能，模拟 $t = 0$ 时 $U = 0$ 的初始状态（或在数据处理时扣除初始电压）。
+
+4.开启加热器，每隔 $5^\circ\text{C}$ 记录温度 $t$ 和电压 $U$，计算 $\alpha$ 并取平均值。
+
+\subsection{实验重点（3分）}
+（简述本实验的学习重点，不超过100字。）
+
+1.\textbf{原理掌握：} 深刻理解非平衡电桥如何将电阻的微小增量 $\Delta R$ 转化为电压信号 $U$，以及公式推导过程。
+
+2.\textbf{参数测量：} 掌握利用公式 $ \alpha = \frac{4U}{t(E - 2U)}$ 计算温度系数的方法。
+
+3.\textbf{仪器操作：} 熟练使用 FQJ 教学电桥的“平衡”与“非平衡”模式切换，以及 PID 温控仪的设定与读数。
+
+\subsection{实验难点（2分）}
+（简述本实验的实现难点，不超过100字。）
+
+1.\textbf{热平衡的控制：} 加热过程中铜电阻内部与温控传感器之间存在温度梯度的滞后（热惯性）,需控制升温速率，待温度示数稳定后再读取电压或调节电阻，否则会导致U与t不对应，产生较大系统误差。
+
+2.\textbf{接触电阻影响：} 实验连线（特别是$R_x$端）必须紧固，连接导线的不稳定或接触不良会引起电压读数跳动或引入接触电阻，严重影响非平衡电桥微弱电压信号的测量精度。
+
+\vspace{3\baselineskip}
+
+\input{注意事项}
+\end{document}

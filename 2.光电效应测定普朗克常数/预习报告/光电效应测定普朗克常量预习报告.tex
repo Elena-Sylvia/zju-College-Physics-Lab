@@ -1,0 +1,102 @@
+\documentclass{Preport}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+}
+
+\exname{光电效应测定普朗克常量} %实验名称
+\instructor{张妍老师} %指导教师
+\class{-} %班级
+\name{-} %姓名
+\stuid{-} %学号
+
+\nyear{2025} %年
+\nmonth{9} %月
+\nday{29} %日
+\nweekday{一} %星期几
+
+\begin{document}
+\setcounter{page}{0}
+\makecover
+
+\section{预习报告（10分）}
+\subsection{实验综述（5分）}
+（自述实验现象、实验原理和实验方法，包括必要的光路图、电路图、公式等。不超过500字。）
+
+光电效应测定普朗克常量实验，旨在帮助我们理解光电效应方程和光量子概念，在掌握理论知识的基础上，进一步掌握光电效应试验方法并验证相关的实验现象，并最终测定普朗克常数的准确值，同时对饱和光电流强度的影响因素进行探究。
+
+\textbf{实验现象：}当不同频率的单色光照射在金属阴极上时，会有电子在瞬时逸出，形成光电流。在实验过程中，我们会观察到：
+
+\begin{itemize}[leftmargin=4em]
+    \item 电子的动能随入射光频率增加而增大，而与光强无关；
+    \item 当光频率低于某一阈值时，无光电子发射；
+    \item 光电流强度与光强成正比
+\end{itemize}
+
+这些现象不能用经典波动理论解释，而是符合爱因斯坦提出的\textbf{光量子假说}。
+
+\vspace{1\baselineskip}
+\textbf{实验原理:} 本实验基于爱因斯坦光电效应方程：
+$$
+h\nu = \frac{1}{2}mv^2 + W = eU_a + W
+$$
+
+其中 (h) 为普朗克常数，($\nu$) 为光频率，(W) 为金属的逸出功，($U_a$) 为截止电压。
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/不同光强下UAK-I曲线.png} 
+        \caption{不同光强下$U_{AK}-i$曲线}
+        \label{fig:UAK-i}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/v-Ua曲线.png} 
+        \caption{$\nu-U_a$关系图}
+        \label{fig:v-Ua}
+    \end{minipage}
+    \label{fig:combined}
+\end{figure}
+
+由此我们可以得出截止电压与频率成线性关系：
+$$
+U_a = \frac{h}{e}\nu - \frac{W}{e}
+\nu_0 = \frac{W}{h}
+$$
+
+通过测量不同频率下的截止电压并进行线性拟合，即可求得斜率 (h/e)，从而得到普朗克常数。
+
+实验装置由汞灯光源、滤光片（提供多组单色光）、光电管、可调直流电源、微安表和电压表组成。
+\begin{itemize}[leftmargin=4em]
+    \item 光路:汞灯发射特征谱线，经滤色片选择单色光，照射光电管阴极产生光电子
+    \item 电路:通过调节阳极电压，测量在不同光频率下电流随电压变化的伏安特性曲线，并使用零电流法确定截止电压
+\end{itemize}
+
+\vspace{1\baselineskip}
+\textbf{实验方法:}
+\begin{enumerate}[leftmargin=4em]
+    \item 预热光源并调零仪器
+    \item 用不同滤光片选择不同的波长，测定光电流随电压的变化，并做出伏安特性曲线
+    \item 使用零电流法确定截止电压
+    \item 线性拟合截止电压与频率，求出普朗克常数、功函数和红限频率
+    \item 改变光源距离与光阑孔径，探究光饱和电流强度的影响因素
+\end{enumerate}
+
+\subsection{实验重点（3分）}
+（简述本实验的学习重点，不超过100字。）
+
+本实验的学习重点是理解光电效应的基本规律，包括电子动能与入射光频率的线性关系及与光强无关的特性；掌握截止电压的测定方法；学会线性拟合不同频率下的实验数据，从而求得普朗克常数和金属材料的功函数，并探究光饱和电流强度的影响因素，进一步加深对量子理论和光的粒子性的认识。
+
+\subsection{实验难点（2分）}
+（简述本实验的实现难点，不超过100字。）
+
+本实验的难点在于准确测定截止电压，需有效消除暗电流、本底电流及仪器零点漂移等的影响；在实际操作中，我们还可能面临光源不稳定、滤光片选择有限以及数据线性拟合精度不高等问题。
+
+
+\vspace{3\baselineskip}
+\input{注意事项}
+\end{document}

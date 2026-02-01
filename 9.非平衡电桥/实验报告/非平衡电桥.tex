@@ -1,0 +1,306 @@
+\documentclass{Phyport}
+\usepackage{longtable}
+\usepackage{multirow}      % 用于跨行
+\usepackage{float} % 在导言区添加
+\usepackage{amsmath}  % 必须加这一行！
+\usepackage{ctex}     % 如果要显示中文，加上这一行
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+}
+
+\exname{非平衡电桥} %实验名称
+\extable{4} %实验桌号
+\instructor{谭艾林老师} %指导教师
+\class{-} %班级
+\name{-} %姓名
+\stuid{-} %学号
+
+\nyear{2025} %年
+\nmonth{11} %月
+\nday{24} %日
+\nweekday{一} %星期几
+
+\redate{} %如有实验补做，补做日期
+\resitu{} %情况说明：
+
+\begin{document}
+\setcounter{page}{0}
+\makecover
+
+\section{预习报告（10分）}
+（注：将已经写好的“物理实验预习报告”内容拷贝过来）
+
+\subsection{实验综述（5分）}
+（自述实验现象、实验原理和实验方法，包括必要的光路图、电路图、公式等。不超过500字。）
+
+\textbf{非平衡直流电桥实验}旨在帮助我们掌握非平衡电桥的工作原理，并利用它来测量金属（铜）的电阻温度系数。与平衡电桥不同的是，非平衡电桥不仅能测量相对稳定的物理量，更能将传感器（如热敏电阻）因环境变化（温度、压力等）引起的电阻微小变化转化为电压信号输出，是自动控制和非电量电测技术的基础。
+
+\vspace{1\baselineskip}
+
+\textbf{实验现象：}
+
+在实验中，将铜电阻（Cu50）置于加热装置中。随着温度 t 的升高，铜电阻阻值$R_t$增大。
+
+1.在\textbf{非平衡电压法}中，电桥初始处于平衡状态（U=0），随温度升高，电桥失去平衡，数字电压表显示的非平衡电压 U逐渐增大。
+
+2.在\textbf{平衡电桥法}中，随温度升高，检流计偏转，需调节比较臂电阻使电桥重新达到平衡，此时测量出的电阻值$R_t$随温度线性增加。
+
+\vspace{1\baselineskip}
+
+\textbf{实验原理：}
+
+\textbf{1. 非平衡电桥工作原理}
+
+非平衡电桥原理如下图所示，由$R_1,R_2,R_3,R_x$组成桥臂，电源电压为 E:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../images/非平衡电桥原理图.png}
+    \caption{非平衡电桥原理图}
+    \label{fig:非平衡电桥原理图}
+\end{figure}
+
+当负载电阻 $R_g \to \infty $（输出端开路）时，输出电压 
+U为 B、D 两点电位差，又根据分压原理，B 点和 D 点对负极（C点）的电压分别为：
+\[
+U_{BC} = \frac{R_x}{R_1 + R_x} E, \quad U_{DC} = \frac{R_3}{R_2 + R_3} E
+\]
+
+则输出电压 $U$ 为：
+\begin{equation}
+    U = U_{BC} - U_{DC} = \left( \frac{R_x}{R_1 + R_x} - \frac{R_3}{R_2 + R_3} \right) E = \frac{R_2 R_x - R_1 R_3}{(R_1 + R_x)(R_2 + R_3)} E
+    \label{eq:general_U}
+\end{equation}
+
+当满足 $R_1 R_3 = R_2 R_x$ 时，$U=0$，电桥处于平衡状态。固定$R_1,R_2,R_3$，调节电阻$R_x$为$R_x+ \Delta R_x$，电桥失去平衡，输出的非平衡电压 $U$ 为：
+$$
+U = \frac{R_2 R_x + R_2 \Delta R_x - R_1 R_3}{(R_1 + R_x + \Delta R_x)(R_2 + R_3)} \cdot E
+$$
+
+根据U的变化，我们就能得知电桥中电阻的变化情况。
+
+\textbf{2. 金属电阻温度系数 $\alpha$ 的测量}
+
+变温金属电阻阻值随温度线性变化，即 $R_t = R_0 (1 + \alpha t)$。其中$R_0$为变温电阻0℃时的阻值，$\alpha$为电阻温度系数。
+
+实验中，当B、D处于开路状态时，设定桥臂电阻 $R_1 = R_2 = R_3 = R_0$，此时待测电阻 $R_x = R_t = R_0 + \Delta R_x$，其中 $\Delta R_x = R_0 \alpha t$。
+
+将上述条件代入公式 (1) 得输出电压与温度的关系：
+\begin{equation}
+    U = \frac{\alpha t}{4 + 2\alpha t} E
+\end{equation}
+
+由此可反解出电阻温度系数 $\alpha$ 的计算公式：
+
+\begin{equation}
+    \alpha = \frac{4U}{t(E - 2U)}
+    \label{eq:alpha_calc}
+\end{equation}
+
+本次实验中 $E \approx 1.3\,\text{V}$。因此通过测量不同温度 $t$ 下的非平衡电压 $U$，我们即可求得 $\alpha$。
+
+
+\vspace{1\baselineskip}
+
+\textbf{实验方法：}
+
+\vspace{1\baselineskip}
+
+\textbf{平衡电桥法（绘 $R_t - t$ 曲线）：}
+
+1.将开关置于“平衡 5V”档，此时电路转换为惠斯登电桥
+
+2.设定 $R_1 = R_2$，调节 $R_3$（即测量臂 $R_c$）使检流计示数为 0。
+
+3.此时 $R_x = R_3$。逐点测量不同温度下的阻值，绘制 $R_t - t$ 曲线，验证线性关系并由斜率求 $\alpha$。
+
+\vspace{1\baselineskip}
+
+\textbf{非平衡电压法（测 $\alpha$）：}
+
+1.将 FQJ 电桥功能开关置于“非平衡电压”档。
+
+2.按照 $R_1 = R_2 = R_3 = 50\,\Omega$ 设置桥臂，接入 $0^\circ\text{C}$ 时阻值为 $50\,\Omega$ 的 Cu50 铜电阻。
+
+3.\textbf{预调平衡}：若当前非 $0^\circ\text{C}$，需通过微调 $R_3$ 或利用电桥调零功能，模拟 $t = 0$ 时 $U = 0$ 的初始状态（或在数据处理时扣除初始电压）。
+
+4.开启加热器，每隔 $5^\circ\text{C}$ 记录温度 $t$ 和电压 $U$，计算 $\alpha$ 并取平均值。
+
+\subsection{实验重点（3分）}
+（简述本实验的学习重点，不超过100字。）
+
+1.\textbf{原理掌握：} 深刻理解非平衡电桥如何将电阻的微小增量 $\Delta R$ 转化为电压信号 $U$，以及公式推导过程。
+
+2.\textbf{参数测量：} 掌握利用公式 $ \alpha = \frac{4U}{t(E - 2U)}$ 计算温度系数的方法。
+
+3.\textbf{仪器操作：} 熟练使用 FQJ 教学电桥的“平衡”与“非平衡”模式切换，以及 PID 温控仪的设定与读数。
+
+\subsection{实验难点（2分）}
+（简述本实验的实现难点，不超过100字。）
+
+1.\textbf{热平衡的控制：} 加热过程中铜电阻内部与温控传感器之间存在温度梯度的滞后（热惯性）,需控制升温速率，待温度示数稳定后再读取电压或调节电阻，否则会导致U与t不对应，产生较大系统误差。
+
+2.\textbf{接触电阻影响：} 实验连线（特别是$R_x$端）必须紧固，连接导线的不稳定或接触不良会引起电压读数跳动或引入接触电阻，严重影响非平衡电桥微弱电压信号的测量精度。
+
+\section{原始数据（20分）}
+（将有老师签名的“自备数据记录草稿纸”的扫描或手机拍摄图粘贴在下方，完整保留姓名，学号，教师签字和日期。）
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../images/originaldata.jpg}
+    \caption{original data}
+    \label{fig:original_data}
+\end{figure}
+
+\section{结果与分析（60分）}
+\subsection{数据处理与结果（30分）}
+（列出数据表格、选择适合的数据处理方法、写出测量或计算结果。）
+
+\textbf{实验一：测量铜电阻Cu50温度系数}
+
+\begin{longtable}{|c|c|c|c|c|c|c|c|c|}
+  \caption{测量铜电阻Cu50温度系数原始数据} \label{tab:测量铜电阻Cu50温度系数原始数据} \\
+  \hline
+     \textbf{次数} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+  \hline
+  \textbf{温度$t/^\circ\text{C} $} & 30.0 & 35.0 & 40.0 & 45.0 & 50.0 & 55.0 & 60.0 & 65.0 \\
+  \hline
+  \textbf{U/mV} & 40.0 & 46.2 & 52.1 & 58.4 & 64.0 & 69.7 & 75.1 & 80.8  \\
+  \hline
+  \textbf{$\alpha/ ^\circ \text{c}^{-1}$} & 0.004372 & 0.004372 & 0.004357 & 0.004387 & 0.004369 & 0.004368 & 0.004354 & 0.004368  \\
+  \hline
+\end{longtable}
+
+其中，每个$\alpha$均由公式$\alpha = \frac{4U}{t(E - 2U)}$计算得到，本实验中E的值为1.3V。
+
+因此，我们所测得的$\alpha$的平均值为：
+$$
+\overline{\alpha}=\frac{\sum \alpha_i}{8} =0.004368\,^\circ \text{C}^{-1}
+$$
+
+查找资料我们可以得到，Cu50的温度系数的标准值为$0.004280^\circ \text{C}^{-1}$
+
+故相对误差$E_r$为：
+$$E_r=\frac{|\bar{\alpha}-\alpha_{theory}|}{\alpha_{theory}} \times 100\% = \frac{|0.004368-0.004280|}{0.004280} \times 100\% \approx 2.06\%$$
+
+\textbf{实验二：用平衡电桥描绘铜电阻（Cu50）温度特性
+曲线}
+
+\begin{longtable}{|c|c|c|c|c|c|c|c|c|}
+  \caption{平衡电桥原始数据} \label{tab:平衡电桥原始数据} \\
+  \hline
+     \textbf{次数} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+  \hline
+  \textbf{温度$t/^\circ\text{C} $} & 30.0 & 35.0 & 40.0 & 45.0 & 50.0 & 55.0 & 60.0 & 65.0 \\
+  \hline
+  \textbf{$R_t/\Omega$} & 56.99 & 58.06 & 59.15 & 60.23 & 61.31 & 62.37 & 63.46 & 64.56  \\
+  \hline
+\end{longtable}
+
+使用matplotlib对数据进行线性拟合，得到拟合直线为：
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../images/output.png}
+    \caption{output}
+    \label{fig:output}
+\end{figure}
+
+线性拟合结果：
+
+- 拟合方程: $R_t = 0.2160 * t + 50.5051$
+
+- 截距$R_0 = 50.5051 \Omega $
+
+- 斜率k = $0.2160 \,\Omega/^\circ \text{C}$
+
+因此我们测得的温度系数为：$\alpha = \frac{k}{R_0} = 0.004277 ^\circ \text{C} $ ，相对误差$E_r$为：
+$$
+E_r=\frac{|\bar{\alpha}-\alpha_{theory}|}{\alpha_{theory}} \times 100\% = \frac{|0.004277-0.004280|}{0.004280} \times 100\% \approx 0.07\%
+$$
+
+\subsection{误差分析（20分）}
+（运用测量误差、相对误差或不确定度等分析实验结果，写出完整的结果表达式，并分析误差原因。）
+
+\textbf{相对误差在实验数据处理部分已经计算完毕，本部分直接分析实验误差来源。}
+
+\vspace{1\baselineskip}
+
+在本实验中，我们可以发现，非平衡电桥法的相对误差显著大于平衡电桥法，这主要源于以下几个方面的误差：
+
+\textbf{系统误差（主要影响非平衡电桥法）}
+
+1.\textbf{电源电压E的准确性}:非平衡电桥法中,$\alpha$的计算高度依赖于电源电压E的准确值。而实际测量过程中，电源电压的大小会随负载或时间产生微小漂移，这会直接对$\alpha$的计算结果产生较大影响。
+
+2.\textbf{预调平衡的偏差：}非平衡法要求在 $t=0^\circ \text{C}$时电桥平衡（U=0）。而在实际操作中，我们是在室温下通过调零旋钮来抵消初始电压。这种“电气调零”与真实的“$0^\circ \text{C}$电阻平衡”存在差异，若调零不准，会给后续所有电压读数引入一个固定的系统偏差。
+
+\textbf{环境与操作误差(同时影响两种方法)}
+
+1.\textbf{温度测量误差：}实验中温度传感器与铜电阻之间存在热接触不良或热滞后现象，导致实际铜电阻温度与读数存在偏差，进而影响$\alpha$的计算。同时，实验中我们可以观察到加热的速度较快，我是采用距离设定温度还有一定差距时即停止加热，使用余热使铜电阻温度达到设定值。但是铜电阻的温度仍然存在波动，且加热装置内部温度可能不均，也会对测量结果产生影响。
+
+2.\textbf{接触电阻与连接线不稳定：}导线与FDJ型非平衡直流电桥连接端口的接触电阻会引入额外的电压下降，，这种接触不良会导致读数波动，增加实验的随机误差。
+
+3.\textbf{电压表读数误差}数字电压表的读数存在一定的分辨率限制，存在$\pm0.1mV$的跳动，在测量微小电压时，读数的不确定性会对结果产生较大影响。
+
+\subsection{实验探讨（10分）}
+（对实验内容、现象和过程的小结，不超过100字。）
+
+本实验利用 FQJ 型直流电桥，分别采用非平衡电压法和平衡电桥法测量了铜电阻（Cu50）的温度系数。实验发现，非平衡法中，输出电压U随温度升高显著增大，计算得$\alpha \approx 0.004368\,^\circ \text{C}^{-1}$，误差约2.06\%；平衡法通过绘制$R_t - t$曲线，得$\alpha \approx 0.004277\,^\circ \text{C}^{-1}$，误差仅0.07\%。两种方法均验证了铜电阻阻值随温度线性增加的特性。
+
+\section{思考题（10分）}
+（解答教材或讲义或老师布置的思考题，请先写题干，再作答。）
+
+\textbf{思考题一：简述非平衡电桥与平衡电桥之间的区别。}
+
+非平衡电桥与平衡电桥虽然电路结构相似（均为惠斯登电桥结构），但在工作原理、测量方法和应用场景上有显著区别：
+
+\begin{enumerate}
+    \item \textbf{测量原理不同（零示法 vs 偏转法）：}
+    \begin{itemize}
+        \item \textbf{平衡电桥}采用“零示法”。测量时必须调节比较臂电阻（$R_3$），使检流计示数为零（$I_g=0$），此时 B、D 两点电势相等。计算公式为 $R_x = \frac{R_1}{R_2} R_3$。
+        \item \textbf{非平衡电桥}采用“偏转法”。测量时桥臂电阻（$R_1, R_2, R_3$）固定不变，电桥不处于平衡状态。它通过测量 B、D 间的输出电压 $U$ 来反推待测电阻 $R_x$ 的变化。
+    \end{itemize}
+
+    \item \textbf{操作方式与测量速度不同：}
+    \begin{itemize}
+        \item 平衡电桥在每次测量时都需要手动或自动调节电阻使电桥平衡，操作较繁琐，且无法实时跟随快速变化的信号。
+        \item 非平衡电桥一旦预调平衡后，无需再调节电阻，可直接读取输出电压。其响应速度快，能够连续测量和记录。
+    \end{itemize}
+
+    \item \textbf{应用场景不同：}
+    \begin{itemize}
+        \item 平衡电桥适用于测量静态、固定且对精度要求较高的电阻值。
+        \item 非平衡电桥适用于测量连续变化的物理量（如随时间变化的温度、压力等），常用于自动控制和非电量电测系统中。
+    \end{itemize}
+\end{enumerate}
+
+\textbf{思考题二：非平衡电桥在工程中有些哪些应用？举例说明。}
+
+非平衡电桥在工程中主要作为传感器信号的转换电路，将非电物理量引起的电阻的变化转化为电压或电流信号，从而实现对非电量的测量和控制。具体的应用包括：
+
+\begin{enumerate}
+    \item \textbf{温度测量与控制（热敏电阻/热电阻）：}
+    \begin{itemize}
+        \item \textbf{原理：} 利用金属热电阻（如本实验中的 Cu50）或半导体热敏电阻的阻值随温度变化的特性。
+        \item \textbf{举例：} 在工业生产中监测电机内部线圈的温度；或如家用空调、热水器的温度控制器，通过非平衡电桥读取热敏电阻的变化来控制加热或制冷。
+    \end{itemize}
+
+    \item \textbf{应力与称重测量（电阻应变片）：}
+    \begin{itemize}
+        \item \textbf{原理：} 某些材料（如康铜丝）在受力发生形变时，其电阻率和几何尺寸会发生变化，导致电阻改变（应变效应）。
+        \item \textbf{举例：} 电子秤（称重传感器）、桥梁建筑的结构健康监测、飞机机翼的受力分析。将应变片接入非平衡电桥，将其微小的形变转化为电压信号输出。
+    \end{itemize}
+
+    \item \textbf{压力测量：}
+    \begin{itemize}
+        \item \textbf{原理：} 压力传感器利用压阻效应，当气体或液体压力作用于传感器膜片时，引起电阻变化，通过非平衡电桥测量电压的变化情况，从而得知压力大小。
+        \item \textbf{举例：} 广泛用于气压计、油压监测等。
+    \end{itemize}
+\end{enumerate}
+
+\vspace{2\baselineskip}
+
+\input{注意事项}
+\end{document}

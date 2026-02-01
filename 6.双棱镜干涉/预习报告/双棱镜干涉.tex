@@ -1,0 +1,117 @@
+\documentclass{Preport}
+\usepackage{longtable}
+\usepackage{multirow}      % 用于跨行
+\usepackage{float} % 在导言区添加
+\usepackage{amsmath}  % 必须加这一行！
+\usepackage{ctex}     % 如果要显示中文，加上这一行
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+}
+
+\exname{双棱镜干涉实验} %实验名称
+\instructor{殷立明老师} %指导教师
+\class{-} %班级
+\name{-} %姓名
+\stuid{-} %学号
+
+\nyear{2025} %年
+\nmonth{11} %月
+\nday{3} %日
+\nweekday{一} %星期几
+
+\begin{document}
+\setcounter{page}{0}
+\makecover
+
+\section{预习报告（10分）}
+\subsection{实验综述（5分）}
+（自述实验现象、实验原理和实验方法，包括必要的光路图、电路图、公式等。不超过500字。）
+
+\textbf{双棱镜干涉实验}旨在利用光的干涉现象来测定光的波长。该实验利用双棱镜形成的两个相干光束进行干涉，通过观察干涉条纹的变化，推算出光波的波长。与传统的单棱镜干涉法相比，双棱镜干涉法能够在较短的距离内产生更明显的干涉条纹，且具备更高的测量精度。
+
+\textbf{实验现象：}
+
+在实验中，单色光源通过双棱镜后被分成两束相干光束，这两束光经过不同的路径后重新合并，形成干涉条纹。当调节其中一束光的路径时，可以观察到干涉条纹的变化，条纹的增大或减小可以通过示波器进行记录，进而我们可以计算出光的波长。
+
+\textbf{实验原理：}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/光路图1.png} 
+        \caption{双棱镜干涉原理}
+        \label{fig:双棱镜干涉原理}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/光路图2.png} 
+        \caption{光波波长测量原理}
+        \label{fig:光波波长测量原理}
+    \end{minipage}
+    \label{fig:combined}
+\end{figure}
+
+1. 双棱镜干涉原理
+
+如图1所示，He-Ne 激光发出的光波会聚于狭缝 S，当狭缝 S 发出的光波投射到双棱镜 MN 上时，其波面被分割成两部分，通过双棱镜来观察这两束光波，就好像它们是由虚光源 $S_1$ 和 $S_2$发出的一样。所以在两束光相互叠加区域 $P'P''$ 内产生干涉现象。
+
+2. 光波波长测量原理
+
+如图2所示，$\delta$ 是 $S_1$ 和 $S_2$ 到毛玻璃屏上某一相干点 $P_k$ 的光程差。$x_{k+1}$ 和 $x_k$ 分别为 $S_1$ 和 $S_2$ 到毛玻璃屏上相邻两相干点 $P_{k+1}$ 和 $P_k$ 分别到 $P_0$ 的距离。当 $D \gg d, D \gg x_k$ 时，有：
+$$
+\delta = \frac{x_k}{D} d 
+$$
+所以，两相邻亮条纹的间距为：
+$$
+\Delta x = x_{k+1} - x_k = \frac{D}{d}\lambda\;, \;\lambda = \frac{\Delta x \cdot d}{D}
+$$
+
+3.二次成像原理：
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../images/光路图3.png}
+    \caption{二次成像原理}
+    \label{fig:二次成像原理}
+\end{figure}
+
+如图3所示，设透镜的焦距为f，则我们可以根据相似关系得到：
+$$
+\frac{d_1}{d+d_1}=\frac{S_1'-f}{S_1'}
+$$
+$$
+\frac{d_2}{d+d_2}=\frac{S_2'-f}{S_2'}
+$$
+由上面两式可得，$d=\sqrt{d_1d_2}$
+
+根据透镜成像定理可以推导出，狭缝到屏的距离D为：
+$$
+D=\frac{\sqrt{d_2}+\sqrt{d_1}}{\sqrt{d_2}-\sqrt{d_1}}f
+$$
+
+\textbf{实验装置与方法：}
+
+实验系统包括光源、双棱镜、光屏、调节器和干涉观察系统。光源发出的单色光经过双棱镜分成两束相干光，光束经过不同的路径后再汇合，形成干涉条纹。实验中，通过调节双棱镜的位置或观察屏上的条纹的位置，测量干涉条纹的间距，从而推算出光源的波长。
+
+\subsection{实验重点（3分）}
+（简述本实验的学习重点，不超过100字。）
+
+1.领会分波面法干涉实验原理
+
+2.了解双棱镜干涉装置及光路调节技巧
+
+3.观察双棱镜干涉现象并测定光波波长
+
+\subsection{实验难点（2分）}
+（简述本实验的实现难点，不超过100字。）
+
+本实验的难点主要在于干涉条纹的清晰成像与精确测量。由于双棱镜干涉要求两束光具有较高的相干性，实验中光源的位置、狭缝宽度及双棱镜的角度必须精确调整，否则条纹会模糊或者条纹的对比度会下降。此外，虚光源间距的测量与干涉条纹间距的测定均需要较高的精度，稍有误差都会显著影响波长计算结果。
+
+
+\vspace{3\baselineskip}
+\input{注意事项}
+\end{document}

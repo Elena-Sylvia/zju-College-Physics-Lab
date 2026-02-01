@@ -1,0 +1,97 @@
+\documentclass{Preport}
+\usepackage{longtable}
+\usepackage{multirow}      % 用于跨行
+\usepackage{float} % 在导言区添加
+\usepackage{amsmath}  % 必须加这一行！
+\usepackage{ctex}     % 如果要显示中文，加上这一行
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+}
+
+\exname{光速测量} %实验名称
+\instructor{乐静飞老师} %指导教师
+\class{-} %班级
+\name{-} %姓名
+\stuid{-} %学号
+
+\nyear{2025} %年
+\nmonth{10} %月
+\nday{27} %日
+\nweekday{一} %星期几
+
+\begin{document}
+\setcounter{page}{0}
+\makecover
+
+\section{预习报告（10分）}
+\subsection{实验综述（5分）}
+（自述实验现象、实验原理和实验方法，包括必要的光路图、电路图、公式等。不超过500字。）
+
+\textbf{光速测量实验}旨在利用\textbf{光调制法}来测定光在空气中的传播速度，从而理解光信号在电光系统中的延迟规律。该方法通过调制光强信号、测量信号传播的时间延迟来计算光速，体现了光学与电子测量技术的结合。与传统的旋转镜法相比，调制法具有\textbf{结构简单、可重复性强、测量精度高}等优点。
+
+\textbf{实验现象：}
+
+实验中，光源经过调制器输出周期性变化的光强信号，通过平行光管和反射镜后被光电接收器接收。当改变反射镜与接收器间的距离时，示波器上两路信号的相位差随之变化，可以观察到波形延迟增大或减小的现象。通过测量时间延迟的变化，即可定量求得光在空气中的传播速度。
+
+\textbf{实验原理：}
+
+\textbf{光速测量仪器原理示意图：}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../images/测量光速.drawio.png}
+    \caption{测量光速}
+    \label{fig:测量光速}
+\end{figure}
+
+调制光强可表示为：
+\[
+I = I_0 + \Delta I_0 \cos(2\pi f t)
+\]
+
+经光电探测器转换为电信号：
+\[
+U_1 = U_1 \cos(2\pi f t), \quad
+U_2 = U_2 \cos\!\left[2\pi f (t - \Delta t)\right]
+\]
+
+其中，光在空气中传播的时间差为：
+\[
+\Delta t = \frac{L}{c}
+\]
+
+两信号的相位差为：
+\[
+\Delta \phi = 2\pi f \Delta t = 2\pi f \frac{L}{c}
+\]
+
+若调节接收器位置使相位差变化 $2\pi$，则传播距离变化 $\Delta L$ 满足：
+\[
+c = f \frac{\Delta L}{\Delta \phi / 2\pi} = \frac{\Delta L}{\Delta t}
+\]
+
+因此，通过测量距离变化与时间延迟之间是关系即可计算光速。
+
+\textbf{实验装置与方法：}
+
+实验系统由光速测量仪（含光源、调制器、反射镜、光电接收器）、平行光管、导轨及示波器组成。通过调节折光器和接收器的位置，利用示波器的 Track 功能测得不同距离下的时间延迟 $\Delta t$，并通过直接计算或作图法求出光速。
+
+\subsection{实验重点（3分）}
+（简述本实验的学习重点，不超过100字。）
+
+
+本实验的学习重点在于掌握利用\textbf{光调制法}测量光速的基本思路和操作方法，理解\textbf{调制信号、相位差与时间延迟}之间的定量关系。我们需要熟悉示波器的双通道测量与 \texttt{Track} 功能，能够准确读取光信号与参考信号的时间差；同时应掌握利用作图法求斜率计算光速的过程，并理解实验中\textbf{信号调制、波形相移、传播距离与光速计算}之间的物理联系，从而培养光电测量与数据处理的综合能力。
+
+
+\subsection{实验难点（2分）}
+（简述本实验的实现难点，不超过100字。）
+
+本实验的主要难点在于\textbf{时间延迟的精确测量与光路调节}。由于信号频率较高，示波器上两路波形相位差微小，读数稍有偏差即可造成较大误差；同时光路需严格准直，否则接收信号幅值减弱，影响时间差测定。此外，实验中多次移动反射镜时需保持光轴一致，避免机械误差累积。我们需要通过反复调节与求平均值，来保证测量的稳定性与结果的可靠性。
+
+
+\vspace{3\baselineskip}
+
+\input{注意事项}
+\end{document}

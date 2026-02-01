@@ -1,0 +1,120 @@
+\documentclass{Preport}
+\usepackage{longtable}
+\usepackage{multirow}      % 用于跨行
+\usepackage{float} % 在导言区添加
+\usepackage{amsmath}  % 必须加这一行！
+\usepackage{ctex}     % 如果要显示中文，加上这一行
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+}
+
+\exname{光的偏振应用研究} %实验名称
+\instructor{姚星星老师} %指导教师
+\class{-} %班级
+\name{-} %姓名
+\stuid{-} %学号
+
+\nyear{2025} %年
+\nmonth{12} %月
+\nday{8} %日
+\nweekday{一} %星期几
+
+\begin{document}
+\setcounter{page}{0}
+\makecover
+
+\section{预习报告（10分）}
+\subsection{实验综述（5分）}
+（自述实验现象、实验原理和实验方法，包括必要的光路图、电路图、公式等。不超过500字。）
+
+\textbf{光的偏振及其应用研究}实验旨在通过观测光在介质界面的反射特性，深入理解光的横波性质。本次实验的核心在于利用布儒斯特角原理测定介质的折射率，并验证线偏振光遵循马吕斯定律。
+
+\vspace{1\baselineskip}
+
+\textbf{实验原理：}
+
+\textbf{1. 菲涅尔公式与偏振光的反射特性}
+
+光波作为电磁波，在两种介质界面（如空气与玻璃）反射时，其反射特性强烈依赖于光的偏振态。如图1所示，将入射光矢量分解为两个正交分量：
+
+\begin{itemize}
+    \item \textbf{S分量（图1-1）：} 光矢量垂直于入射面（垂直纸面，用圆点表示）。
+    \item \textbf{P分量（图1-2）：} 光矢量平行于入射面（在纸面内，用箭头表示）。
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../images/光的偏振原理图.png}
+    \caption{菲涅尔公式原理图}
+    \label{fig:菲涅尔公式原理图}
+\end{figure}
+
+根据菲涅尔公式，P分量的反射振幅比为：
+
+\begin{equation}
+    \frac{E_1}{E_0} = \frac{\tan(\theta_0 - \theta_2)}{\tan(\theta_0 + \theta_2)}
+\end{equation}
+
+其中 $\theta_0$ 为入射角，$\theta_2$ 为折射角。
+
+当入射角满足 $\theta_0 + \theta_2 = 90^\circ$ 时，公式分母趋于无穷大，反射系数为零。这意味着此时反射光中不包含P分量，只有S分量，反射光变为完全线偏振光。
+
+该特定入射角称为\textbf{布儒斯特角}（Brewster's Angle, $\theta_B$），此时满足：
+
+\begin{equation}
+    \tan \theta_B = \frac{n_2}{n_1} = n \quad (\text{空气中 } n_1 \approx 1)
+\end{equation}
+
+实验通过测量使反射光中P分量消失的入射角 $\theta_B$，即可求得折射率 $n$。
+
+\textbf{2. 马吕斯定律（Malus's Law）}
+
+当线偏振光（光强为 $I_0$）透过检偏器时，若线偏振光的振动方向与检偏器透光轴的夹角为 $\phi$，则透射光强 $I$ 满足：
+\[
+I = I_0 \cos^2 \phi
+\]
+
+实验中利用硅光电池测量光电流 $i$。由于在一定范围内光电流与入射光强成正比（$i \propto I$），通过测量光电流 $i$ 随转角 $\phi$ 的变化，即可验证该线性关系。
+
+
+\vspace{1\baselineskip}
+
+\textbf{实验方法：}
+
+\textbf{1. 测量黑色平板的折射率（逐渐逼近法）}
+\begin{itemize}
+    \item 调节激光器、转盘中心、黑色平板及光探测器等高共轴。
+    \item 旋转激光器（或加起偏器），使入射光为平行于入射面的线偏振光（$P$光）。
+    \item 转动载物台改变入射角，观察反射光强。当反射光强达到最弱（消光）时，记录刻度盘读数。
+    \item 为消除偏心差，在转台左右两侧分别测量布儒斯特角对应的位置读数 $\theta_{L}$ 和 $\theta_{R}$，则布儒斯特角 $\theta_B$ 可由相关几何关系（如 $|\theta_L - \theta_R|/2$ 或根据具体仪器零点公式）计算得出，进而求出 $n = \tan \theta_B$。
+\end{itemize}
+
+\textbf{2. 验证光电流与光强的关系}
+\begin{itemize}
+    \item 固定入射角为布儒斯特角，此时反射光为垂直于入射面振动的线偏振光（$S$光）。
+    \item 在反射光路中加入偏振片。旋转偏振片，测量并记录光电流出现极大值 $i_{\max}$ 和极小值 $i_{\min}$ 的角度，确定偏振片的透光轴方向；随后改变偏振片角度 $\phi$（如每隔 $10^\circ$），记录对应的光电流 $i$。同时测量遮挡光路时的本底电流 $i'$。
+    \item 绘制 $(i - i') \sim \cos^2 \phi$ 曲线，通过观察曲线是否拟合为通过原点的直线来验证马吕斯定律。
+\end{itemize}
+
+\subsection{实验重点（3分）}
+（简述本实验的学习重点，不超过100字。）
+
+1. 深刻理解光的偏振态（线偏振、自然光），以及布儒斯特角产生线偏振光（p分量反射为0）的物理机制。
+
+2. 掌握光学实验中的共轴调节技术，以及利用“逐渐逼近法”准确寻找反射光强极小值位置的方法。
+
+3. 学会处理实验数据，通过扣除本底电流和作图分析，验证光电流与偏振角余弦平方的线性关系（马吕斯定律）。
+
+\subsection{实验难点（2分）}
+（简述本实验的实现难点，不超过100字。）
+
+1. \textbf{极小值的精确判断：} 在布儒斯特角附近反射光强变化平缓，肉眼或仪器难以直接锁定唯一的最小值点，需通过测量光强对称点来辅助定位，操作要求高。
+
+2. \textbf{系统误差控制：} 激光器、转台与检测器的共轴等高调节直接影响角度测量的准确性；此外，环境背景光会引入本底电流，若不进行有效遮蔽或修正，将导致马吕斯定律验证曲线偏离原点。
+
+\vspace{3\baselineskip}
+
+\input{注意事项}
+\end{document}

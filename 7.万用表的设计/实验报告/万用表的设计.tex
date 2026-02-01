@@ -1,0 +1,365 @@
+\documentclass{Phyport}
+\usepackage{longtable}
+\usepackage{multirow}      % 用于跨行
+\usepackage{float} % 在导言区添加
+\usepackage{amsmath}  % 必须加这一行！
+\usepackage{ctex}     % 如果要显示中文，加上这一行
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+}
+
+\exname{万用表的设计} %实验名称
+\extable{8} %实验桌号
+\instructor{谭艾林老师} %指导教师
+\class{-} %班级
+\name{-} %姓名
+\stuid{-} %学号
+
+\nyear{2025} %年
+\nmonth{11} %月
+\nday{10} %日
+\nweekday{一} %星期几
+
+\redate{} %如有实验补做，补做日期
+\resitu{} %情况说明：
+
+\begin{document}
+\setcounter{page}{0}
+\makecover
+
+\section{预习报告（10分）}
+（注：将已经写好的“物理实验预习报告”内容拷贝过来）
+
+\subsection{实验综述（5分）}
+（自述实验现象、实验原理和实验方法，包括必要的光路图、电路图、公式等。不超过500字。）
+
+\textbf{万用表的设计实验}旨在通过改装电流计，使其成为具有多种量程的电流表、电压表和欧姆表，并了解其工作原理和设计方法。万用表是常用的测量工具，主要是由直流电流计及若干电阻构成。由于万用表具有多用途及使用方便等优点，它有着广泛的应用。本实验主要学会多量程电流表、电压表和万用表的设计及校正。
+
+\textbf{实验现象：}
+
+在实验中，通过在电流计两端并联或串联不同阻值的电阻，我们可以观察到电流计的量程发生变化，从而实现多量程电流表和电压表的功能。改装欧姆表时，通过调节电阻，可以观察到电流计指针的偏转与被测电阻之间的非线性关系。校准过程中，通过与标准电表的比较，可以发现改装后的电表存在误差，并可以通过调整电阻进行校正。
+
+\textbf{实验原理：}
+
+万用表主要由磁电式电流计和一系列电阻构成。电流计的两个重要参数是量程 $I_g$ 和内阻 $R_g$。$R_g$可以用替代法或者中值法获得。
+
+1. \textbf{改装多量程电流表}
+
+将磁电式电流计改装成量程为 $I$ 的电流表，需在电表表头两端并联一个分流电阻 $R_s$。分流电阻阻值按以下公式计算：
+$$ R_s = \frac{R_g I_g}{I - I_g} $$
+
+通过并联不同的分流电阻，可以构成不同量程的电流表。例如，设计 5mA 和 10mA 两个量程的电流表，其电路图如下：
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/多量程电流表改装电路.png} 
+        \caption{多量程电流表改装电路}
+        \label{fig:多量程电流表改装电路}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/多量程电流表校正电路.png} 
+        \caption{多量程电流表校正电路}
+        \label{fig:多量程电流表校正电路}
+    \end{minipage}
+    \label{fig:combined}
+\end{figure}
+
+计算 $R_1$ 和 $R_2$ 值的公式为：
+$$
+\begin{cases}
+(5 - I_g)(R_1 + R_2) = I_g R_g \\
+I_g (R_2 + R_g) = (10 - I_g) R_1
+\end{cases}
+$$
+
+最后用标准安培表对改装后的电流表进行校正，并分析误差，校正电路见上图。
+
+2. \textbf{改装多量程电压表}
+
+将电流计改装成量程为 $U$ 的电压表，需串联一个分压电阻 $R_v$。分压电阻阻值按以下公式计算：
+
+$$ R_v = \frac{U}{I_g'} - R_g' $$
+
+其中 $R_g'$ 为电流计等效内阻，$I_g'$ 为电流计等效量程（采用改装后的电流表参数）。通过串联不同的分压电阻，可以得到不同量程的电压表。例如，设计 5V 和 10V 两个量程的电压表，其电路图如下：
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/多量程电压表改装电路.png} 
+        \caption{多量程电压表改装电路}
+        \label{fig:多量程电压表改装电路}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/多量程电压表校正电路.png} 
+        \caption{多量程电压表校正电路}
+        \label{fig:多量程电压表校正电路}
+    \end{minipage}
+    \label{fig:combined_2}
+\end{figure}
+
+计算 $R_3$ 和 $R_4$ 值的公式为：
+$$
+\begin{cases}
+R_3 = \frac{5V - I_g'R_g'}{I_g'} \\
+R_4 = \frac{10V - 5V}{I_g'} \\
+R_g' = \frac{R_g(R_1+R_2)}{R_g + R_1+R_2} \\
+I_g' = 5mA
+\end{cases}
+$$
+
+最后用标准伏特表对改装后的电压表进行校正，并分析误差，校正电路见上图。
+
+3. \textbf{改装欧姆表}
+
+欧姆表改装原理是利用电流计的偏转与被测电阻之间的关系。电路图如下：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../images/改装欧姆表电路.png}
+    \caption{改装欧姆表设计电路}
+    \label{fig:ohmmeter_circuit}
+\end{figure}
+
+短接 a、b 两端，调节电阻 $R$ 使电流计满刻度，此时 $I_0 = \frac{\epsilon }{R_g' + R'}$。当接入待测电阻 $R_x$ 后，回路电流为 $I_x = \frac{\epsilon}{R_g' + R' + R_x}$。由于 $I_x$ 与 $R_x$ 呈非线性关系，因此欧姆表的刻度是非均匀的。
+
+\textbf{实验装置与方法：}
+
+实验器材包括电流计、滑动变阻器、电源、旋钮电阻箱、保护电阻、标准安培表、标准伏特表和面包板等。
+
+1. \textbf{电流表改装：} 根据公式计算分流电阻值，通过旋钮电阻箱设置相应电阻，并联到电流计两端，构成多量程电流表。
+
+2. \textbf{电压表改装：} 根据公式计算分压电阻值，通过旋钮电阻箱设置相应电阻，串联到电流计回路中，构成多量程电压表。
+
+3. \textbf{欧姆表改装：} 搭建欧姆表电路，通过调节可调电阻进行调零，然后接入不同阻值的电阻，记录电流计读数，绘制 $I_x \sim R_x$ 曲线。
+
+4. \textbf{校准与误差分析：} 使用标准安培表和标准伏特表对改装后的电流表和电压表进行校准，记录数据并进行误差分析。
+
+\subsection{实验重点（3分）}
+（简述本实验的学习重点，不超过100字。）
+
+1. 理解多量程电流表、电压表、欧姆表的设计原理和改装方法。
+
+2. 掌握并联分流和串联分压在电表改装中的应用。
+
+3. 学会万用表的校准方法和误差分析方法。
+
+\subsection{实验难点（2分）}
+（简述本实验的实现难点，不超过100字。）
+
+本实验的难点在于精确计算和选择合适的电阻值，以保证改装后电表的准确性。同时，在面包板上正确搭建复杂电路并进行精细调节，以及进行严谨的校准和误差分析，也是实验成功的关键挑战。
+
+\section{原始数据（20分）}
+（将有老师签名的“自备数据记录草稿纸”的扫描或手机拍摄图粘贴在下方，完整保留姓名，学号，教师签字和日期。）
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../images/originaldata.jpg}
+    \caption{original data}
+    \label{fig:original_data}
+\end{figure}
+
+\section{结果与分析（60分）}
+\subsection{数据处理与结果（30分）}
+（列出数据表格、选择适合的数据处理方法、写出测量或计算结果。）
+
+\textbf{预实验：测量电流计内阻}
+
+在本次实验中，我们使用中值法来测量电流计的内阻 $R_g$。调整标准电流计示数至1.00mA，此时调整可变电阻的阻值至电流计的示数$I'=0.5mA$,记录此时可变电阻的阻值$R'=235 \Omega $。因此我们可以知道，电流计的内阻等于此时可变电阻的阻值，即$R_g=235 \Omega $。
+
+\textbf{实验一：改装多量程电流表}
+
+首先，根据公式：
+$$ R_s = \frac{R_g I_g}{I - I_g} $$
+
+计算出5mA量程所需的分流电阻值为：$R=59 \Omega $
+
+\begin{longtable}{|c|c|c|c|c|c|}
+  \caption{改装多量程电流表} \label{tab:改装多量程电流表} \\
+  \hline
+    \textbf{实验次数} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+  \hline
+  \textbf{$I_{\text{标准}}/mA$} & 1.00 & 2.00 & 3.00 & 4.00 & 5.00 \\
+  \hline
+  \textbf{$I_{\text{改装}}/mA$} & 1.06 & 2.05 & 3.04 & 3.95 & 5.00 \\
+  \hline
+  \textbf{$\Delta I/mA$} & 0.06 & 0.05 & 0.04 & -0.05 & 0 \\
+  \hline
+  \textbf{校准后的并联电阻$R_2$} & \multicolumn{5}{|c|}{59$\Omega$} \\
+  \hline
+\end{longtable}
+
+用matplotlib绘制改装电流表与标准电流表的对比图以及$\Delta I$变化曲线如下：
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/output1.png} 
+        \caption{$\Delta I$变化曲线}
+        \label{fig:Delta I变化曲线}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/output2.png} 
+        \caption{测量电流与标准电流对比图}
+        \label{fig:测量电流与标准电流对比图}
+    \end{minipage}
+    \label{fig:combined3}
+\end{figure}
+
+我的改装电流表等级为：
+$$
+\text{电流表等级}=\frac{\text{最大绝对误差}}{\text{量程}}\times 100\% = \frac{0.06mA}{5mA} \times 100\% = 1.2\%
+$$
+
+\textbf{实验二：改装多量程电压表}
+
+首先，根据公式：
+$$ R_v = \frac{U}{I_g'} - R_g' $$
+
+计算出5V量程所需的分压电阻值为：$R=953 \Omega $。
+
+\begin{longtable}{|c|c|c|c|c|c|}
+  \caption{改装多量程电压表} \label{tab:改装多量程电压表} \\
+  \hline
+    \textbf{实验次数} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+  \hline
+  \textbf{$U_{\text{标准}}/mA$} & 1.00 & 2.00 & 3.00 & 4.00 & 5.00 \\
+  \hline
+  \textbf{$U_{\text{改装}}/mA$} & 1.11 & 2.12 & 3.10 & 4.05 & 5.00 \\
+  \hline
+  \textbf{$\Delta U/mA$} & 0.11 & 0.12 & 0.10 & 0.05 & 0 \\
+  \hline
+  \textbf{校准后的串联电阻$R_2$} & \multicolumn{5}{|c|}{943$\Omega$} \\
+  \hline
+\end{longtable}
+
+用matplotlib绘制改装电压表与标准电压表的对比图以及$\Delta U$变化曲线如下：
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/output3.png} 
+        \caption{$\Delta U $变化曲线}
+        \label{fig:Delta U变化曲线}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/output4.png} 
+        \caption{测量电压与标准电压对比图}
+        \label{fig:测量电压与标准电压对比图}
+    \end{minipage}
+    \label{fig:combined4}
+\end{figure}
+
+我的改装电压表等级为：
+$$
+\text{电压表等级}=\frac{\text{最大绝对误差}}{\text{量程}}\times 100\% = \frac{0.12V}{5V} \times 100\% = 2.4\%
+$$
+
+串联电阻的相对误差为：
+$$
+\text{相对误差}=\frac{953\Omega - 943\Omega}{953\Omega} \times 100\% \approx 1.05\%
+$$
+
+\textbf{实验三：改装欧姆表}
+
+\begin{longtable}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \caption{改装欧姆表} \label{tab:改装欧姆表} \\
+  \hline
+  \textbf{$I_x/mA$} & 5.0 & 4.6 & 4.2 & 3.8 & 3.4 & 3.0 & 2.6 & 2.2 & 1.8 & 1.4 & 1.0 & 0.6 & 0.4 & 0.2 \\
+  \hline
+  \textbf{$R_x/\Omega$} & 0 & 30.2 & 60.2 & 96.2 & 140.2 & 200.1 & 260.1 & 361.1 & 501.1 & 701.1 & 1101.1 & 1801.1 & 2643.1 & 4443.1   \\
+  \hline
+\end{longtable}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/output5.png} 
+        \caption{$I_x - R_x$曲线}
+        \label{fig:电流电阻曲线}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../images/output6.png} 
+        \caption{$I_x - log(R_x)$曲线}
+        \label{fig:电流电阻对数曲线}
+    \end{minipage}
+    \label{fig:combined5}
+\end{figure}
+
+右图是对电阻值取对数后的曲线，从两张曲线图中我们可以看出，在电流较大的区域（低电阻区），电阻刻度比较稀疏；而在电流较小的区域（高电阻区），电阻刻度则非常密集。总体来说，欧姆表刻度盘上的电阻值刻度是非均匀的。
+
+\subsection{误差分析（20分）}
+（运用测量误差、相对误差或不确定度等分析实验结果，写出完整的结果表达式，并分析误差原因。）
+
+在本实验中，我们通过改装电流计来设计多量程电流表、多量程电压表和欧姆表，并对其进行了校准和误差分析。以下是本次实验中的误差来源分析：
+
+(电表等级分析以及相对误差的计算在实验数据处理部分已经完成)
+
+1.在对电流计进行读数的时候，我发现电流计的指针有时会出现抖动现象，导致读数不稳定，从而引入了读数误差。
+
+2.存在视差。电流计的指针在偏转角度较大的时候，并不与刻度完全重合（存在一定的夹角），导致我在读数时存在一定的估读误差。
+
+3.连接电路的导线也存在电阻，尤其是在小电阻测量时，导线的电阻不可忽略，且不同元件之间接触不良也可能引入额外的接触电阻。
+
+4.实验中使用的直流电源可能存在电压波动或内阻变化。在改装欧姆表的实验过程中，测量结果直接依赖于电源电压的稳定性。因此在测量过程中，如果电源输出不稳定，会导致测量结果不准确。
+
+\subsection{实验探讨（10分）}
+（对实验内容、现象和过程的小结，不超过100字。）
+
+本次\textbf{万用表的设计实验},旨在根据已有的电流计改装获得电流表电压表以及欧姆表。我们首先基于磁电式电流计，通过理论计算确定并联电阻阻值，改装并校准了5mA量程的电流表。接着，通过串联电阻的方法，改装并校准了5V量程的电压表。最后，我们搭建了欧姆表电路，观察到电流与电阻之间明显的非线性关系，经过这次实验，我对电表的改装以及量程的扩展有了更加深刻的认识。
+
+\section{思考题（10分）}
+（解答教材或讲义或老师布置的思考题，请先写题干，再作答。）
+
+\textbf{思考题一：为什么不能用万用表欧姆挡测量电源的电阻？}
+
+万用表的欧姆挡是通过表内电池向被测电阻供电，并测量由此产生的电流来间接测量电阻值的。当使用欧姆挡测量电源电阻时，被测电源本身也提供电动势。这就会形成两个电动势同时作用的电路。如果被测电源的电压高于欧姆表内电池电压，或者两者方向相反，可能会导致：
+
+    \textbf{1.损坏欧姆表：} 过大的电流可能烧毁欧姆表内部的电流计或精密电阻。
+
+    \textbf{2.测量结果不准确：} 被测电源的电动势会干扰欧姆表内电池产生的电流，使流过电流计的电流不再仅仅由被测电阻决定，从而导致测量值严重偏离实际电阻。
+
+因此，欧姆挡设计用于测量无源电阻（不带电的电阻），测量有源电阻（带电的电源）会带来危险并导致错误结果。
+
+\vspace{1\baselineskip}
+
+\textbf{思考题二： 为什么不能用欧姆表测量另一表头内阻？}
+
+欧姆表测量原理是利用表内电池提供电流，通过测量此电流来推算被测电阻的阻值。当用欧姆表测量另一个电流表（或电压表）的表头内阻时：
+
+    \textbf{1.欧姆表对表头放电：} 欧姆表内电池会向被测表头供电，使表头指针发生偏转，此时流过表头的电流是欧姆表电池驱动的。
+
+    \textbf{2.表头内阻的特性：} 另一个表头本身也是一个精密仪器，其内阻通常比较小。当欧姆表接入时，表头内部可能会产生瞬间过大的冲击电流，特别是对于灵敏度较高的电流表，这可能导致其线圈损坏，或使指针因过流而弯曲甚至烧毁。
+
+因此，为了保护被测表头和确保测量安全，我们不应使用欧姆表来测量另一个表头的内阻。测量表头内阻通常需要采用替代法或中值法等方法。
+
+\vspace{1\baselineskip}
+
+\textbf{思考题三：为什么$I_x$与$R_x$为非线性关系？}
+
+根据欧姆表的工作原理，当外接被测电阻$R_x$时，回路总电阻为$R_\text{total} + R_x$，流过电流计的电流$I_x$为：
+$$ 
+I_x = \frac{\epsilon_0}{R_\text{total} + R_x} 
+$$
+
+其中，$\epsilon_0$为欧姆表内电池的电动势，$R_{total}$是欧姆表内部电路的总电阻（包括电流计内阻、调零电阻、限流电阻等）。
+
+从上述公式可以看出，$I_x$与$R_x$之间的关系并不是一个简单的线性正比或反比关系，而是一种非线性反比关系。
+
+\vspace{3\baselineskip}
+\input{注意事项}
+\end{document}
